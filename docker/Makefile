@@ -3,8 +3,15 @@ COMPOSE_FILES=-f ../docker-compose.yml -f ../docker-compose-dev.yml
 SERVICE=superset
 
 # Levantar stack en dev
+build-dev:
+	docker compose $(COMPOSE_FILES) up --build
+
 up-dev:
 	docker compose $(COMPOSE_FILES) up -d
+
+# Borrar todo
+down:
+	docker compose $(COMPOSE_FILES) down -v
 
 # Bash interactivo dentro de superset
 bash:
